@@ -9,23 +9,28 @@ Thus harder to make correct predictions. Even from the sources of the Ham10k dat
 
 ~!!! Xong pipeline cơ bản rồi nhưng vẫn còn hơi lộn xộn quá
 
-Một số hình ảnh trong quá trình pipeline
+## Một số hình ảnh trong quá trình pipeline
 
 Biểu đồ loss và accuracy của mô hình trong quá trình training
-![HAM10k_with_MobileNet](figure/training_loss_and_accuracy.png)
+
+![HAM10k_with_MobileNet](_figure/training_loss_and_accuracy.png)
 
 Đồ thị confusion matrix của tập valid khi mô hình đạt val_acc cao nhất (~70.4%)
-![HAM10l_with_MobileNet](figure/valid_set_confusion_matrix.png)
+
+![HAM10l_with_MobileNet](_figure/valid_set_confusion_matrix.png)
 
 Đồ thị confusion matrix của mô hình với 1 chunk dữ liệu train (sau 10 epochs)
-![HAM10l_with_MobileNet](figure/train_set_confusion_matrix_1chunk.png)
+
+![HAM10l_with_MobileNet](_figure/train_set_confusion_matrix_1chunk.png)
 
 Giá trị loss và accuracy của mô hình khi huấn luyện dao động khá lớn có thể do learning rate vẫn còn khá cao.
 
 Sau khi huấn luyện mô hình với 10 epochs, sẽ thực hiện suy luận với tập test và lưu kết quả vào 1 file "test_preds.csv"
 Vì không có labels để đối chứng nên mình sẽ dùng độ phân bố của kết quả dự đoán và độ tin cậy để đánh giá kết quả
 
-![HAM10l_with_MobileNet](figure/test_pred_distribution.png)
+![HAM10l_with_MobileNet](_figure/test_pred_distribution.png)
 
-![HAM10l_with_MobileNet](figure/test_pred_confidence_distribution.png)
+Phân bố của kết quả dự đoán cũng gần tương đồng với phân bố của dataset. Nhưng đa phần kết quả dự đoán của mô hình lại có mức độ tin cậy (confidence) khá thấp. Nên cũng không loại trừ phân bố của kết quả là do đang bị overfit... :< do data imbalance.
+
+![HAM10l_with_MobileNet](_figure/test_pred_confidence_distribution.png)
 
